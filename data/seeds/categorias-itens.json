@@ -1,0 +1,16 @@
+[
+  {
+    "categoria": "Hambúrgueres",
+    "ordem": 1,
+    "itens": [
+      { "nome": "Hambúrguer Artesanal", "descricao": "Carne Angus, queijo, bacon", "preco": 24.90, "ingredientes": "carne, queijo, bacon, pão", "ordem": 1 }
+    ]
+  },
+  {
+    "categoria": "Bebidas",
+    "ordem": 2,
+    "itens": [
+      { "nome": "Refrigerante Lata", "descricao": "350ml", "preco": 6.00, "ordem": 1 }
+    ]
+  }
+]

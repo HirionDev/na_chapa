@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Impressão do Pedido</title>
+  <style>
+    body { font-family: 'Courier New', Courier, monospace; background: #fff; color: #222; }
+    .cupom { width: 370px; margin: 20px auto; border: 1px dashed #aaa; padding: 20px; }
+    h2 { text-align: center; font-size: 1.1rem; }
+    .linha { border-top: 1px dashed #bbb; margin: 10px 0; }
+    .item { margin-bottom: 4px; }
+    .destaque { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="cupom">
+    <h2>Pedido Na Chapa</h2>
+    <div id="pedido"></div>
+    <div class="linha"></div>
+    <div style="text-align: center;">Obrigado pela preferência!</div>
+  </div>
+  <script>
+    const { ipcRenderer } = require('electron');
+    ipcRenderer.on('print-data', (event, pedido) => {
+      let html = `
+        <div><span class="destaque">Cliente:</span> ${pedido.cliente || '-'}</div>
+        <div><span class="destaque">Telefone:</span> ${pedido.telefone || '-'}</div>
+        <div><span class="destaque">Consumo:</span> ${pedido.tipo_consumo || '-'}</div>
+        <div class="linha"></div>
+        <div><span class="destaque">Itens:</span></div>
+        <ul>
+          ${(pedido.itens || []).map(item => `<li class="item">${item.quantidade}x ${item.nome} - ${item.observacao || ''}</li>`).join('')}
+        </ul>
+        <div class="linha"></div>
+        <div><span class="destaque">Total:</span> R$ ${(pedido.valor_total || 0).toFixed(2)}</div>
+        <div><span class="destaque">Pagamento:</span> ${pedido.pagamento || '-'}</div>
+        ${pedido.comprovante ? `<div><span class="destaque">Comprovante:</span> Sim</div>` : ''}
+      `;
+      document.getElementById('pedido').innerHTML = html;
+    });
+  </script>
+</body>
+</html>

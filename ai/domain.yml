@@ -1,0 +1,57 @@
+version: '3.1'
+
+intents:
+  - saudacao
+  - pedir_cardapio
+  - fazer_pedido
+  - pagar
+  - enviar_comprovante
+
+entities:
+  - item
+  - pagamento
+  - comprovante
+
+slots:
+  item:
+    type: text
+    mappings:
+      - type: from_text
+  pagamento:
+    type: text
+    mappings:
+      - type: from_text
+  comprovante:
+    type: text
+    mappings:
+      - type: from_text
+  nome_cliente:
+    type: text
+    mappings:
+      - type: from_text
+  tipo_consumo:
+    type: text
+    mappings:
+      - type: from_text
+
+
+responses:
+  utter_saudacao:
+    - text: "Olá! Como posso ajudar?"
+  utter_cardapio:
+    - text: "Veja nosso cardápio: [link ou texto do cardápio aqui]"
+  utter_pedido_ok:
+    - text: "Seu pedido foi registrado!"
+  utter_pedido_indisponivel:
+    - text: "Esse item está indisponível."
+  utter_pagamento:
+    - text: "Pode pagar via PIX, cartão ou dinheiro."
+  utter_comprovante_ok:
+    - text: "Comprovante recebido. Obrigado!"
+
+actions:
+  - action_mostrar_cardapio
+  - action_registrar_pedido
+  - action_verificar_pagamento
+  - action_imprimir_pedido
+

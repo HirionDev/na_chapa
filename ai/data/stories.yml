@@ -1,0 +1,15 @@
+version: "3.1"
+stories:
+- story: fluxo completo do cliente
+  steps:
+    - intent: saudacao
+    - action: utter_saudacao
+    - intent: pedir_cardapio
+    - action: action_mostrar_cardapio
+    - intent: fazer_pedido
+    - action: action_registrar_pedido
+    - intent: pagar
+    - action: action_verificar_pagamento
+    - intent: enviar_comprovante
+    - action: utter_comprovante_ok
+    - action: action_imprimir_pedido

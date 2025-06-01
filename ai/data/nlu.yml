@@ -1,0 +1,35 @@
+version: "3.1"
+nlu:
+- intent: saudacao
+  examples: |
+    - oi
+    - olá
+    - boa noite
+    - bom dia
+    - opa
+
+- intent: pedir_cardapio
+  examples: |
+    - me manda o cardápio
+    - quero ver o cardápio
+    - cardápio
+
+- intent: fazer_pedido
+  examples: |
+    - quero um x-burguer e uma coca zero
+    - me vê uma porção de fritas
+    - quero uma coca zero
+
+- intent: pagar
+  examples: |
+    - vou pagar no cartão
+    - aceitam pix?
+    - pago em dinheiro
+    - posso pagar por pix?
+
+- intent: enviar_comprovante
+  examples: |
+    - segue o comprovante
+    - já paguei
+    - está pago
+    - comprovante do pix

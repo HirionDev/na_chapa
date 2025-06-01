@@ -1,0 +1,36 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Vite/Electron
+dist/
+out/
+build/
+.vite/
+.cache/
+
+# Ambiente
+.env
+.env.*  # outros .envs
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# VSCode/IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Banco de dados temporários
+*.sqlite
+*.sqlite3
+*.db
+
+# Outros arquivos temporários
+*.bak
+*.tmp
